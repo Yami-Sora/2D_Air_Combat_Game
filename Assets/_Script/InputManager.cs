@@ -2,11 +2,16 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
-    public static InputManager instance;
-    [SerializeField] public Vector3 mouseWorldPos;
+    private static InputManager instance;
+    public static InputManager Instance { get => instance;}
+
+    [SerializeField] protected Vector3 mouseWorldPos;
+    public Vector3 MouseWorldPos { get => mouseWorldPos; }
 
     private void Awake()
     {
+        if(InputManager.instance != null) 
+            Debug.LogError("InputManager already exists in the scene. Please ensure there is only one instance.");
         InputManager.instance = this;
     }
     private void FixedUpdate()
