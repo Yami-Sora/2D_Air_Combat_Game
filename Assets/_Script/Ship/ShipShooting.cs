@@ -5,7 +5,6 @@ public class ShipShooting : MonoBehaviour
     [SerializeField] protected bool isShooting = false;
     [SerializeField] protected float shootDelay = 1f; 
     [SerializeField] protected float shootTimer = 0f;
-    [SerializeField] protected Transform bulletPrefab;
 
     private void FixedUpdate()
     {
@@ -26,7 +25,8 @@ public class ShipShooting : MonoBehaviour
         this.shootTimer = 0f;
         Vector3 spawnPos = transform.position;
         Quaternion rotation = transform.parent.rotation;
-        Instantiate(this.bulletPrefab, spawnPos, rotation);
+        Transform newBullet = Spawner.instance.Spawn(spawnPos, rotation);
+        newBullet.gameObject.SetActive(true);
         Debug.Log("Shooting");
     }
 
