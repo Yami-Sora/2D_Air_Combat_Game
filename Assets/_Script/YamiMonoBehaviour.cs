@@ -10,6 +10,10 @@ public class YamiMonoBehavior : MonoBehaviour
     {
         this.LoadComponents();
     }
+    protected virtual void Start()
+    {
+        //For override
+    }
     protected virtual void LoadComponents()
     {
         //for override  

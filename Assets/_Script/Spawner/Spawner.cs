@@ -1,20 +1,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spawner : YamiMonoBehavior
+public abstract class Spawner : YamiMonoBehavior
 {
-    public static Spawner instance { get; private set; }
     [SerializeField] protected List<Transform> prefabs = new List<Transform>();
 
-    protected override void Awake()
-    {
-        base.Awake();
-        Spawner.instance = this;
-    }
-    protected override void Reset()
-    {
-        this.LoadComponents();
-    }
 
     protected override void LoadComponents()
     {
@@ -40,10 +30,23 @@ public class Spawner : YamiMonoBehavior
             prefab.gameObject.SetActive(false);
         }
     }
-    public virtual Transform Spawn(Vector3 spawnPos, Quaternion rotation)
+    public virtual Transform Spawn(string prefabName, Vector3 spawnPos, Quaternion rotation)
     {
-        Transform prefab = this.prefabs[0];
+        Transform prefab = this.GetPrefabByName(prefabName);
         Transform newprefab = Instantiate(prefab, spawnPos, rotation);
         return newprefab;
+    }
+
+    public virtual Transform GetPrefabByName(string prefabName)
+    {
+        foreach (Transform prefab in this.prefabs)
+        {
+            if (prefab.name == prefabName)
+            {
+                return prefab;
+            }
+        }
+        Debug.LogWarning("Prefab with name " + prefabName + " not found in " + transform.name);
+        return null;
     }
 }
