@@ -23,7 +23,7 @@ public class ShipShooting : MonoBehaviour
         }
 
         this.shootTimer = 0f;
-        Vector3 spawnPos = transform.position;
+        Vector3 spawnPos = transform.position; 
         Quaternion rotation = transform.parent.rotation;
         Transform newBullet = BulletSpawner.Instance.Spawn(BulletSpawner.BulletOne,spawnPos, rotation);
         if (newBullet == null)
