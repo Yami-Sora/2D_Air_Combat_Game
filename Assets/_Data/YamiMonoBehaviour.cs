@@ -1,10 +1,11 @@
 using UnityEngine;
 
-public class YamiMonoBehavior : MonoBehaviour
+public class YamiMonoBehaviour : MonoBehaviour
 {
     protected virtual void Reset()
     {
         this.LoadComponents();
+        this.ResetValue();
     }
     protected virtual void Awake()
     {
@@ -15,6 +16,10 @@ public class YamiMonoBehavior : MonoBehaviour
         //For override
     }
     protected virtual void LoadComponents()
+    {
+        //for override  
+    }
+    protected virtual void ResetValue()
     {
         //for override  
     }

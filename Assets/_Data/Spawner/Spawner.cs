@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Spawner : YamiMonoBehavior
+public abstract class Spawner : YamiMonoBehaviour
 {
     [SerializeField] protected Transform holder;
     [SerializeField] protected List<Transform> prefabs = new List<Transform>();

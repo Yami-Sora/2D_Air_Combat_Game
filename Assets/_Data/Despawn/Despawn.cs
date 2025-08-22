@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class Despawn : YamiMonoBehavior
+public abstract class Despawn : YamiMonoBehaviour
 {
     protected virtual void FixedUpdate()
     {
