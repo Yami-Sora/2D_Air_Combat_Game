@@ -3,6 +3,7 @@ using UnityEngine;
 public class JunkRandom : YamiMonoBehaviour
 {
     [SerializeField] protected JunkCtrl junkCtrl;
+    
 
     protected override void LoadComponents()
     {
@@ -21,10 +22,12 @@ public class JunkRandom : YamiMonoBehaviour
     }
     protected virtual void JunkSpawning()
     {
-        Vector3 pos = transform.position;
+        Transform ranPoint = this.junkCtrl.JunkSpawnPoints.GetRandom();
+        Vector3 pos = ranPoint.position;
         Quaternion rot = transform.rotation;
         Transform obj = this.junkCtrl.JunkSpawner.Spawn(JunkSpawner.meteoriteOne, pos, rot);
         obj.gameObject.SetActive(true);
+
         Invoke(nameof(JunkSpawning), 1f);
     }
 }
