@@ -6,4 +6,9 @@ public class JunkDespawn : DespawnByDistance
     {
         JunkSpawner.Instance.Despawn(transform.parent);
     }
+    protected override void ResetValue()
+    {
+        base.ResetValue();
+        this.disLimit = 15f;
+    }
 }

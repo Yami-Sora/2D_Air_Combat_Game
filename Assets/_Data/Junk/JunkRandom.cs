@@ -28,6 +28,6 @@ public class JunkRandom : YamiMonoBehaviour
         Transform obj = this.junkCtrl.JunkSpawner.Spawn(JunkSpawner.meteoriteOne, pos, rot);
         obj.gameObject.SetActive(true);
 
-        Invoke(nameof(JunkSpawning), 1f);
+        Invoke(nameof(JunkSpawning), 0.5f);
     }
 }
