@@ -2,29 +2,17 @@ using UnityEngine;
 
 public class JunkCtrl : YamiMonoBehaviour
 {
-    [SerializeField] protected JunkSpawner junkSpawner;
-    public JunkSpawner JunkSpawner { get => junkSpawner;}
-
-    [SerializeField] protected JunkSpawnPoints junkSpawnPoints;
-    public JunkSpawnPoints JunkSpawnPoints { get => junkSpawnPoints; }
+    [SerializeField] protected Transform model;
+    public Transform Model { get => model; }
     protected override void LoadComponents()
     {
         base.LoadComponents();
-        this.LoadJunkSpawner();
-        this.LoadSpawnPoints();
+        this.LoadModel();
     }
-
-    protected virtual void LoadJunkSpawner()
+    protected virtual void LoadModel()
     {
-        if (junkSpawner != null) return;
-        this.junkSpawner = GetComponent<JunkSpawner>();
-        Debug.Log(transform.name + ": LoadJunkSpawner ", gameObject);
-    }
-
-    protected virtual void LoadSpawnPoints()
-    {
-        if (this.junkSpawnPoints != null) return;
-        this.junkSpawnPoints = Object.FindFirstObjectByType<JunkSpawnPoints>();
-        Debug.Log(transform.name + ": LoadSpawnPoints", gameObject);
+        if (this.model != null) return;
+        this.model = transform.Find("Model");
+        Debug.Log(transform.name + ": LoadModel", gameObject);
     }
 }

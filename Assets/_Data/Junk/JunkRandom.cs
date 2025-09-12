@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class JunkRandom : YamiMonoBehaviour
 {
-    [SerializeField] protected JunkCtrl junkCtrl;
+    [SerializeField] protected JunkSpawnerCtrl junkCtrl;
     
 
     protected override void LoadComponents()
@@ -13,7 +13,7 @@ public class JunkRandom : YamiMonoBehaviour
     protected virtual void LoadJunkCtrl()
     {
         if (junkCtrl != null) return;
-        this.junkCtrl = GetComponent<JunkCtrl>();
+        this.junkCtrl = GetComponent<JunkSpawnerCtrl>();
         Debug.Log(transform.name + ": LoadJunkCtrl ", gameObject);
     }
     protected override void Start()
