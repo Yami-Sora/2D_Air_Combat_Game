@@ -12,7 +12,7 @@ public abstract class Despawn : YamiMonoBehaviour
         if (!this.CanDespawn()) return;
         this.DespawnObject();
     }
-    protected virtual void DespawnObject()
+    public virtual void DespawnObject()
     {
         Destroy(transform.parent.gameObject);
     }
