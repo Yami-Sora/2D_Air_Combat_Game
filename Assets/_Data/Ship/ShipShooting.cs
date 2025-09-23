@@ -8,7 +8,7 @@ public class ShipShooting : MonoBehaviour
 
     private void FixedUpdate()
     {
-        this.checkIsShooting();
+        this.CheckIsShooting();
         this.Shooting();
     }
 
@@ -35,7 +35,7 @@ public class ShipShooting : MonoBehaviour
         Debug.Log("Shooting");
     }
 
-    protected virtual void checkIsShooting()
+    protected virtual void CheckIsShooting()
     {
         if (InputManager.Instance.OnFiring != 0) this.isShooting = true;
         else this.isShooting = false;

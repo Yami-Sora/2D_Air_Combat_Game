@@ -12,6 +12,8 @@ public class FollowTarget : YamiMonoBehaviour
     protected virtual void Following()
     {
         if (this.target == null) return;
-        transform.position = Vector3.Lerp(transform.position, this.target.position, this.speed * Time.fixedDeltaTime);
+        transform.position = Vector3.Lerp(transform.position,
+            new Vector3(this.target.position.x, this.target.position.y, transform.position.z),
+            this.speed * Time.fixedDeltaTime);
     }
 }

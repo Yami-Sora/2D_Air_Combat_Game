@@ -3,7 +3,11 @@ using UnityEngine;
 
 public abstract class Spawner : YamiMonoBehaviour
 {
+    [Header("Spawner")]
     [SerializeField] protected Transform holder;
+    [SerializeField] protected int spawnedCount = 0;
+    public int SpawnedCount { get => this.spawnedCount; }   
+
     [SerializeField] protected List<Transform> prefabs = new List<Transform>();
     [SerializeField] protected List<Transform> poolObjs = new List<Transform>();
 
@@ -48,13 +52,16 @@ public abstract class Spawner : YamiMonoBehaviour
             Debug.LogWarning("Prefab not found: " + prefabName);
             return null;
         }
+        return this.Spawn(prefab, spawnPos, rotation);
+    }
+    public virtual Transform Spawn(Transform prefab, Vector3 spawnPos, Quaternion rotation)
+    {
         Transform newPrefab = this.GetObjectFromPool(prefab);
         newPrefab.SetPositionAndRotation(spawnPos, rotation);
-
         newPrefab.parent = this.holder;
+        this.spawnedCount++;
         return newPrefab;
     }
-
     protected virtual Transform GetObjectFromPool(Transform prefab)
     {
         foreach (Transform poolObj in this.poolObjs)
@@ -74,6 +81,7 @@ public abstract class Spawner : YamiMonoBehaviour
     {
         this.poolObjs.Add(obj);
         obj.gameObject.SetActive(false);
+        this.spawnedCount--;
     }
     public virtual Transform GetPrefabByName(string prefabName)
     {
@@ -86,5 +94,11 @@ public abstract class Spawner : YamiMonoBehaviour
         }
         Debug.LogWarning("Prefab with name " + prefabName + " not found in " + transform.name);
         return null;
+    }
+    public virtual Transform RandomPrefab()
+    {
+        if (this.prefabs.Count == 0) return null;
+        int index = Random.Range(0, this.prefabs.Count);
+        return this.prefabs[index];
     }
 }
