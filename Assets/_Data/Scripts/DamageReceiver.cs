@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(SphereCollider))]
-public class DamageReceiver : YamiMonoBehaviour
+public abstract class DamageReceiver : YamiMonoBehaviour
 {
     [Header("Damage Receiver")]
     [SerializeField] protected SphereCollider sphereCollider;
@@ -56,8 +56,5 @@ public class DamageReceiver : YamiMonoBehaviour
         this.isDead = true;
         this.OnDead();
     }
-    protected virtual void OnDead()
-    {
-        //for override
-    }
+    protected abstract void OnDead();
 }
