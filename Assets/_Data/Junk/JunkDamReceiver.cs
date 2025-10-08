@@ -35,7 +35,7 @@ public class JunkDamReceiver : DamageReceiver
     }
     public override void Reborn()
     {
-        this.hpMax = 2;
+        this.hpMax = junkCtrl.JunkSO.hpMax;
         base.Reborn();
     }
 }

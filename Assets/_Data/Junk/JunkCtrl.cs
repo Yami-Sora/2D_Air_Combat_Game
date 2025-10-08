@@ -14,6 +14,8 @@ public class JunkCtrl : YamiMonoBehaviour
     {
         base.LoadComponents();
         this.LoadModel();
+        this.LoadJunkDespawn();
+        this.LoadJunkSO();
     }
     protected virtual void LoadModel()
     {
@@ -25,14 +27,15 @@ public class JunkCtrl : YamiMonoBehaviour
     protected virtual void LoadJunkDespawn()
     {
         if (junkDespawn != null) return;
-        junkDespawn = GetComponent<JunkDespawn>();
+        junkDespawn = GetComponentInChildren<JunkDespawn>();
         Debug.Log("LoadJunkDespawn: " + transform.name, gameObject);
     }
 
     protected virtual void LoadJunkSO()
     {
         if (junkSO != null) return;
-        junkSO = Resources.Load<JunkSO>("_Data/Junk/JunkSO");
-        Debug.Log("LoadJunkSO: " + transform.name, gameObject);
+        string resPath = "Junk/" + transform.name;
+        junkSO = Resources.Load<JunkSO>(resPath);
+        Debug.Log("LoadJunkSO: " + resPath, gameObject);
     }
 }

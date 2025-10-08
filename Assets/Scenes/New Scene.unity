@@ -134,7 +134,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &58697240
 Transform:
   m_ObjectHideFlags: 0
@@ -863,9 +863,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sphereCollider: {fileID: 643653460}
-  hp: 1
+  hp: 4
   hpMax: 4
-  isDead: 1
+  isDead: 0
   junkCtrl: {fileID: 1778525422}
 --- !u!135 &643653460
 SphereCollider:
@@ -1017,7 +1017,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   model: {fileID: 379860249}
   junkDespawn: {fileID: 530890732}
-  junkSO: {fileID: 0}
+  junkSO: {fileID: 11400000, guid: 260b2c707ff866b4cb35a89cc8ed7218, type: 2}
 --- !u!1 &754291649
 GameObject:
   m_ObjectHideFlags: 0
@@ -1851,7 +1851,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   model: {fileID: 1255612733}
   junkDespawn: {fileID: 899841105}
-  junkSO: {fileID: 0}
+  junkSO: {fileID: 11400000, guid: 8c78aed36293fc440831565903b4b270, type: 2}
 --- !u!1 &1798747688
 GameObject:
   m_ObjectHideFlags: 0

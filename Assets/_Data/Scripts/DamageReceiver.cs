@@ -13,7 +13,11 @@ public abstract class DamageReceiver : YamiMonoBehaviour
     {
         this.Reborn();
     }
-
+    protected override void ResetValue()
+    {
+        base.ResetValue();
+        this.Reborn();
+    }
     protected override void LoadComponents()
     {
         base.LoadComponents();
