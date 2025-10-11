@@ -1,9 +1,9 @@
 using UnityEngine;
 [RequireComponent(typeof(SphereCollider))]
 [RequireComponent(typeof(Rigidbody))]
-public class BulletImpart : BulletAbstract
+public class BulletImpact : BulletAbstract
 {
-    [Header("Bullet Impart")]
+    [Header("Bullet Impact")]
     [SerializeField] protected SphereCollider sphereCollider;
     [SerializeField] protected Rigidbody _rigidbody;
 
@@ -32,5 +32,19 @@ public class BulletImpart : BulletAbstract
     protected virtual void OnTriggerEnter(Collider other)
     {
         this.BulletCtrl.DamageSender.Send(other.gameObject);
+        this.CreateImpactFX(other);
+    }
+    protected virtual void CreateImpactFX(Collider other)
+    {
+        string fxName = this.GetImpactFX();
+
+        Vector3 hitPos = transform.position;
+        Quaternion hitRot = transform.rotation;
+        Transform fxImpact = FXSpawner.Instance.Spawn(fxName, hitPos, hitRot);
+        fxImpact.gameObject.SetActive(true);
+    }
+    protected virtual string GetImpactFX()
+    {
+        return FXSpawner.impact1;
     }
 }
