@@ -5,8 +5,11 @@ public class BulletCtrl : YamiMonoBehaviour
     [SerializeField] protected DamageSender damageSender;
     public DamageSender DamageSender { get => damageSender; }
 
-    [SerializeField] private BulletDespawn bulletDespawn;
+    [SerializeField] protected BulletDespawn bulletDespawn;
     public BulletDespawn BulletDespawn { get => bulletDespawn;}
+
+    //[SerializeField] protected Transform shooter;
+    //public Transform Shooter { get => shooter; set => shooter = value; }
 
     protected override void LoadComponents()
     {
@@ -25,4 +28,8 @@ public class BulletCtrl : YamiMonoBehaviour
         bulletDespawn = GetComponent<BulletDespawn>();
         Debug.Log("LoadBulletDespawn: " + transform.name, gameObject);
     }
+    //public virtual void SetShooter(Transform shooter)
+    //{
+    //    this.shooter = shooter;
+    //}
 }
