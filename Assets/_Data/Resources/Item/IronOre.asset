@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 157bfc0d0a3fa334ca6c9b542f18174d, type: 3}
-  m_Name: Iron2
+  m_Name: IronOre
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
-  itemCode: code
-  itemName: Item2
+  itemCode: 1
+  itemName: Item1
