@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Junk", menuName = "Scriptable Objects/Junk")]
+[CreateAssetMenu(fileName = "Junk", menuName = "SO/Junk")]
 public class JunkSO : ScriptableObject
 {
     public string junkName = "Junk";
