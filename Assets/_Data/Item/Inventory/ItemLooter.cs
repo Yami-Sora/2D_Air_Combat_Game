@@ -1,0 +1,48 @@
+using UnityEngine;
+
+[RequireComponent(typeof(SphereCollider))]
+[RequireComponent(typeof(Rigidbody))]
+public class ItemLooter : YamiMonoBehaviour
+{
+    [SerializeField] protected Inventory inventory;
+    [SerializeField] protected SphereCollider _collider;
+    [SerializeField] protected Rigidbody _rigidbody;
+
+    protected override void LoadComponents()
+    {
+        base.LoadComponents();
+        this.LoadInventory();
+        this.LoadTrigger();
+        this.LoadRigidbody();
+    }
+    protected virtual void LoadInventory()
+    {
+        if (this.inventory != null) return;
+        this.inventory = transform.parent.GetComponent<Inventory>();
+        Debug.LogWarning($"ItemLooter: LoadInventory in {transform.parent.name} ", gameObject);
+    }
+    protected virtual void LoadTrigger()
+    {
+        if (this._collider != null) return;
+        this._collider = transform.GetComponent<SphereCollider>();
+        this._collider.isTrigger = true;
+        this._collider.radius = 0.3f;
+        Debug.LogWarning($"ItemLooter: LoadTrigger in {gameObject.name} ", gameObject);
+    }
+    protected virtual void LoadRigidbody()
+    {
+        if (this._rigidbody != null) return;
+        this._rigidbody = transform.GetComponent<Rigidbody>();
+        this._rigidbody.useGravity = false;
+        this._rigidbody.isKinematic = true;
+        Debug.LogWarning($"ItemLooter: LoadRigidbody in {gameObject.name} ", gameObject);
+    }
+    protected virtual void OnTriggerEnter(Collider other)
+    {
+        ItemPickUpAble itemPickUpAble = other.GetComponent<ItemPickUpAble>();
+        if(itemPickUpAble == null) return;
+        Debug.Log(other.name);
+        Debug.Log(other.transform.parent.name);
+        Debug.Log("Co the pick");
+    }
+}

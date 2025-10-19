@@ -15,6 +15,7 @@ public class BulletCtrl : YamiMonoBehaviour
     {
         base.LoadComponents();
         this.LoadDamageSender();
+        this.LoadBulletDespawn();
     }
     protected virtual void LoadDamageSender()
     {
