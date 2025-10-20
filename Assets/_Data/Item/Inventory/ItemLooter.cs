@@ -41,8 +41,11 @@ public class ItemLooter : YamiMonoBehaviour
     {
         ItemPickUpAble itemPickUpAble = other.GetComponent<ItemPickUpAble>();
         if(itemPickUpAble == null) return;
-        Debug.Log(other.name);
-        Debug.Log(other.transform.parent.name);
-        Debug.Log("Co the pick");
+        
+        ItemCode itemCode = itemPickUpAble.GetItemCode();
+        if(this.inventory.AddItem(itemCode, 1))
+        {
+            itemPickUpAble.Picked();
+        }
     }
 }

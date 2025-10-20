@@ -1337,6 +1337,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07f26601410f47b43b5e8808a16b30f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  junkCtrl: {fileID: 1665643416}
   _collider: {fileID: 637855089}
 --- !u!1 &643653457
 GameObject:
@@ -2862,6 +2863,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07f26601410f47b43b5e8808a16b30f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemPickUpAble
+  junkCtrl: {fileID: 406084046}
   _collider: {fileID: 1778516404}
 --- !u!135 &1778516404
 SphereCollider:
