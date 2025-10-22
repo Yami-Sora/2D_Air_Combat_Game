@@ -16,7 +16,7 @@ public class ItemPickUpAble : JunkAbstract
         if (this._collider != null) return;
         this._collider = transform.GetComponent<SphereCollider>();
         this._collider.isTrigger = true;
-        this._collider.radius = 0.2f;
+        this._collider.radius = 0.5f;
         Debug.LogWarning($"ItemPickUpAble: LoadTrigger in {gameObject.name} ", gameObject);
     }
     public virtual ItemCode GetItemCode()
@@ -28,11 +28,16 @@ public class ItemPickUpAble : JunkAbstract
         if (Enum.TryParse<ItemCode>(itemName, true, out var code))
             return code;
 
-        Debug.LogWarning($"Không tìm thấy ItemCode cho: {itemName}");
+        Debug.LogWarning($"Cannot find ItemCode for: {itemName}");
         return ItemCode.NoItem;
     }
     public virtual void Picked()
     {
         this.junkCtrl.JunkDespawn.DespawnObject();
+    }
+    public virtual void OnMouseDown()
+    {
+        //Debug.Log(transform.parent.name + " picked!");
+        PlayerCtrl.Instance.PlayerPickup.ItemPickup(this);
     }
 }
