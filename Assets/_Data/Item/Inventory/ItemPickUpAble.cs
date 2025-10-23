@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 
 [RequireComponent(typeof(SphereCollider))]
-public class ItemPickUpAble : JunkAbstract
+public class ItemPickUpAble : ItemAbstract
 {
     [Header("Item Pick Up Able")]
     [SerializeField] protected SphereCollider _collider;
@@ -33,11 +33,10 @@ public class ItemPickUpAble : JunkAbstract
     }
     public virtual void Picked()
     {
-        this.junkCtrl.JunkDespawn.DespawnObject();
+        this.itemCtrl.ItemDespawn.DespawnObject();
     }
     public virtual void OnMouseDown()
     {
-        //Debug.Log(transform.parent.name + " picked!");
         PlayerCtrl.Instance.PlayerPickup.ItemPickup(this);
     }
 }

@@ -261,10 +261,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 75075316}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1db578a2e4a1da045b79587bac573322, type: 3}
+  m_Script: {fileID: 11500000, guid: b9200beee96df534b8e39efb5c1f2d4c, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::JunkDespawn
-  disLimit: 30
+  m_EditorClassIdentifier: Assembly-CSharp::ItemDespawn
+  disLimit: 70
   distance: 0
 --- !u!1 &111344056
 GameObject:
@@ -691,12 +691,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 406084044}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e027e58230a566a4cb1b56327d72fc47, type: 3}
+  m_Script: {fileID: 11500000, guid: a1ed31e78ceace44383e3a6292288ed3, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::JunkCtrl
-  model: {fileID: 211411839}
-  junkDespawn: {fileID: 1332621198}
-  junkSO: {fileID: 11400000, guid: 260b2c707ff866b4cb35a89cc8ed7218, type: 2}
+  m_EditorClassIdentifier: Assembly-CSharp::ItemCtrl
+  itemDespawn: {fileID: 1332621198}
 --- !u!1 &417437559
 GameObject:
   m_ObjectHideFlags: 0
@@ -1337,7 +1335,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07f26601410f47b43b5e8808a16b30f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemPickUpAble
-  junkCtrl: {fileID: 1665643416}
+  itemCtrl: {fileID: 0}
   _collider: {fileID: 637855089}
 --- !u!1 &643653457
 GameObject:
@@ -2279,10 +2277,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1332621196}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1db578a2e4a1da045b79587bac573322, type: 3}
+  m_Script: {fileID: 11500000, guid: b9200beee96df534b8e39efb5c1f2d4c, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::JunkDespawn
-  disLimit: 30
+  m_EditorClassIdentifier: Assembly-CSharp::ItemDespawn
+  disLimit: 70
   distance: 0
 --- !u!1 &1409180019
 GameObject:
@@ -2741,12 +2739,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1665643414}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e027e58230a566a4cb1b56327d72fc47, type: 3}
+  m_Script: {fileID: 11500000, guid: a1ed31e78ceace44383e3a6292288ed3, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::JunkCtrl
-  model: {fileID: 1004301581}
-  junkDespawn: {fileID: 75075318}
-  junkSO: {fileID: 11400000, guid: 260b2c707ff866b4cb35a89cc8ed7218, type: 2}
+  m_EditorClassIdentifier: Assembly-CSharp::ItemCtrl
+  itemDespawn: {fileID: 75075318}
 --- !u!1 &1671722644
 GameObject:
   m_ObjectHideFlags: 0
@@ -2916,7 +2912,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07f26601410f47b43b5e8808a16b30f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemPickUpAble
-  junkCtrl: {fileID: 406084046}
+  itemCtrl: {fileID: 0}
   _collider: {fileID: 1778516404}
 --- !u!135 &1778516404
 SphereCollider:
