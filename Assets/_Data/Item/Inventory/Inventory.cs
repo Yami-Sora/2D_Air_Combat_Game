@@ -10,7 +10,6 @@ public class Inventory : YamiMonoBehaviour
     protected override void Start()
     {
         base.Start();
-        this.AddItem(ItemCode.IronOre, 3);
     }
     public virtual bool AddItem(ItemCode itemCode, int addCount)
     {

@@ -14,6 +14,6 @@ public class DropManager : YamiMonoBehaviour
     }
     public virtual void Drop(List<DropRate> dropList)
     {
-        Debug.Log(dropList[0].itemSO.itemName);
+        Debug.Log(dropList[0].itemProfileSO.itemName);
     }
 }
