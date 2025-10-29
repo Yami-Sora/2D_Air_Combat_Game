@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 86ea9b139db2c9347afe705162b36b06, type: 3}
-  m_Name: IronOreProfile
+  m_Name: CopperSword
   m_EditorClassIdentifier: Assembly-CSharp::ItemProfileSO
-  itemCode: 1
-  itemType: 1
-  itemName: Iron Ore
-  defaultMaxStack: 7
+  itemCode: 3
+  itemType: 2
+  itemName: CopperSword
+  defaultMaxStack: 1
