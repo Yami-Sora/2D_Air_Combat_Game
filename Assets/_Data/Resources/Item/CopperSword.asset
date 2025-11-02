@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86ea9b139db2c9347afe705162b36b06, type: 3}
   m_Name: CopperSword
   m_EditorClassIdentifier: Assembly-CSharp::ItemProfileSO
-  itemCode: 3
+  itemCode: 1000
   itemType: 2
   itemName: CopperSword
   defaultMaxStack: 1
@@ -21,4 +21,14 @@ MonoBehaviour:
     - itemProfile: {fileID: 11400000, guid: 55e5027dbae1f2a47892d7601581cd33, type: 2}
       itemCount: 2
     - itemProfile: {fileID: 11400000, guid: 04d10d8702c656a4ba0cddea54e003dc, type: 2}
-      itemCount: 20
+      itemCount: 2
+  - ingredients:
+    - itemProfile: {fileID: 11400000, guid: 55e5027dbae1f2a47892d7601581cd33, type: 2}
+      itemCount: 4
+    - itemProfile: {fileID: 11400000, guid: 04d10d8702c656a4ba0cddea54e003dc, type: 2}
+      itemCount: 4
+  - ingredients:
+    - itemProfile: {fileID: 11400000, guid: 55e5027dbae1f2a47892d7601581cd33, type: 2}
+      itemCount: 5
+    - itemProfile: {fileID: 11400000, guid: 04d10d8702c656a4ba0cddea54e003dc, type: 2}
+      itemCount: 5

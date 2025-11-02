@@ -10,6 +10,8 @@ public class ItemUpgrade : InventoryAbstract
     {
         base.Start();
         Invoke(nameof(this.Test), 2);
+        Invoke(nameof(this.Test), 5);
+        Invoke(nameof(this.Test), 7);
     }
     protected virtual void Test()
     {

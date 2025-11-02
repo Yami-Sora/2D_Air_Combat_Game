@@ -492,8 +492,15 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5c026b0d9b7cd65438df82239c3a0a9f, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
-  points: []
+  m_EditorClassIdentifier: Assembly-CSharp::JunkSpawnPoints
+  points:
+  - {fileID: 2027628066}
+  - {fileID: 636828808}
+  - {fileID: 620785522}
+  - {fileID: 1031174805}
+  - {fileID: 672949089}
+  - {fileID: 1671722645}
+  - {fileID: 1557240375}
 --- !u!114 &301696695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -696,6 +703,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemCtrl
   itemDespawn: {fileID: 1332621198}
+  itemInventory:
+    itemProfile: {fileID: 11400000, guid: 55e5027dbae1f2a47892d7601581cd33, type: 2}
+    itemCount: 2
+    maxStack: 7
+    upgradeLevel: 0
 --- !u!1 &417437559
 GameObject:
   m_ObjectHideFlags: 0
@@ -1409,6 +1421,51 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &670109359
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 670109360}
+  - component: {fileID: 670109361}
+  m_Layer: 8
+  m_Name: InventoryDrop
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &670109360
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 670109359}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1151233594}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &670109361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 670109359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d44b2eb495299f428f596e8ccd0e432, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  inventory: {fileID: 1151233595}
 --- !u!1 &672949088
 GameObject:
   m_ObjectHideFlags: 0
@@ -2207,6 +2264,7 @@ Transform:
   m_Children:
   - {fileID: 507777422}
   - {fileID: 985094217}
+  - {fileID: 670109360}
   m_Father: {fileID: 1454639421}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1151233595
@@ -2269,7 +2327,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dff40da40d305bb4c98ef8a67a22ea42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  holder: {fileID: 0}
+  holder: {fileID: 369059421}
   spawnedCount: 0
   prefabs:
   - {fileID: 637423440}
@@ -2433,6 +2491,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemCtrl
   itemDespawn: {fileID: 1555926638}
+  itemInventory:
+    itemProfile: {fileID: 11400000, guid: af26b7dba2441e04993ed53fda50e39e, type: 2}
+    itemCount: 1
+    maxStack: 7
+    upgradeLevel: 0
 --- !u!1 &1332621196
 GameObject:
   m_ObjectHideFlags: 0
@@ -2986,6 +3049,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemCtrl
   itemDespawn: {fileID: 75075318}
+  itemInventory:
+    itemProfile: {fileID: 11400000, guid: 04d10d8702c656a4ba0cddea54e003dc, type: 2}
+    itemCount: 2
+    maxStack: 7
+    upgradeLevel: 0
 --- !u!1 &1671722644
 GameObject:
   m_ObjectHideFlags: 0

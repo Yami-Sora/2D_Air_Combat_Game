@@ -1,6 +1,4 @@
-using System;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Inventory : YamiMonoBehaviour
@@ -9,12 +7,29 @@ public class Inventory : YamiMonoBehaviour
     [SerializeField] protected List<ItemInventory> items;
     public List<ItemInventory> Items => items;
 
+
     protected override void Start()
     {
         base.Start();
         this.AddItem(ItemCode.CopperSword, 1);
-        this.AddItem(ItemCode.IronOre, 21);
-        this.AddItem(ItemCode.GoldOre, 3);
+        this.AddItem(ItemCode.IronOre, 11);
+        this.AddItem(ItemCode.GoldOre, 11);
+    }
+    public virtual bool AddItem(ItemInventory itemInventory)
+    {
+        int addCount = itemInventory.itemCount;
+        ItemProfileSO itemProfile = itemInventory.itemProfile;
+        ItemCode itemCode = itemProfile.itemCode;
+        ItemType itemType = itemProfile.itemType;
+
+        if(itemType == ItemType.Equipment) return this.AddEquipment(itemInventory);
+        return this.AddItem(itemCode, addCount);
+    }
+    protected virtual bool AddEquipment(ItemInventory itemInventory)
+    {
+        if (IsInventoryFull()) return false;
+        this.items.Add(itemInventory);
+        return true;
     }
     public virtual bool AddItem(ItemCode itemCode, int addCount)
     {
@@ -139,5 +154,16 @@ public class Inventory : YamiMonoBehaviour
             }
             itemInventory.itemCount -= deduct;
         }
-    }   
+        this.ClearEmptySlots();
+    }
+    protected virtual void ClearEmptySlots()
+    {
+        ItemInventory itemInventory;
+        for(int i = this.items.Count -1; i >=0 ; i--)
+        {
+            itemInventory = this.items[i];
+            if (itemInventory.itemCount > 0) continue;
+            this.items.RemoveAt(i);
+        }
+    }
 }
