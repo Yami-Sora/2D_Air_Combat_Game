@@ -2,7 +2,7 @@ using UnityEngine;
 
 public abstract class ItemAbstract : YamiMonoBehaviour
 {
-    [SerializeField] protected ItemCtrl itemCtrl;
+    [SerializeField] private ItemCtrl itemCtrl;
     public ItemCtrl ItemCtrl { get => itemCtrl; }
     protected override void LoadComponents()
     {
@@ -12,7 +12,7 @@ public abstract class ItemAbstract : YamiMonoBehaviour
     protected virtual void LoadItemCtrl()
     {
         if (this.itemCtrl != null) return;
-        this.itemCtrl = transform.parent.GetComponent<ItemCtrl>();
+        this.itemCtrl = GetComponentInParent<ItemCtrl>();
         Debug.Log(transform.name + ": LoadItemCtrl", gameObject);
     }
 }

@@ -33,7 +33,7 @@ public class ItemPickUpAble : ItemAbstract
     }
     public virtual void Picked()
     {
-        this.itemCtrl.ItemDespawn.DespawnObject();
+        this.ItemCtrl.ItemDespawn.DespawnObject();
     }
     public virtual void OnMouseDown()
     {

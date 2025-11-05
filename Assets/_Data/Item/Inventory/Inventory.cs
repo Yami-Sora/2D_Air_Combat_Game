@@ -25,10 +25,12 @@ public class Inventory : YamiMonoBehaviour
         if(itemType == ItemType.Equipment) return this.AddEquipment(itemInventory);
         return this.AddItem(itemCode, addCount);
     }
-    protected virtual bool AddEquipment(ItemInventory itemInventory)
+    protected virtual bool AddEquipment(ItemInventory itemPicked)
     {
         if (IsInventoryFull()) return false;
-        this.items.Add(itemInventory);
+        ItemInventory item = itemPicked.Clone();
+
+        this.items.Add(item);
         return true;
     }
     public virtual bool AddItem(ItemCode itemCode, int addCount)

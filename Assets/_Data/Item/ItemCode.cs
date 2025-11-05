@@ -9,13 +9,13 @@ public class ItemCodeParser
 {
     public static ItemCode FromString(string itemName)
     {
-        try
-        {
-            return (ItemCode)System.Enum.Parse(typeof(ItemCode), itemName);
-        }
-        catch
-        {
+        if (string.IsNullOrWhiteSpace(itemName))
             return ItemCode.NoItem;
-        }
+
+        // TryParse tránh ngoại lệ và có thể ignore case
+        if (System.Enum.TryParse<ItemCode>(itemName, ignoreCase: true, out var result))
+            return result;
+
+        return ItemCode.NoItem;
     }
 }
