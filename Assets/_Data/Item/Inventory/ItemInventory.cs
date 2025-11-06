@@ -13,6 +13,7 @@ public class ItemInventory
         {
             itemProfile = this.itemProfile,
             itemCount = this.itemCount,
+            maxStack = this.maxStack,
             upgradeLevel = this.upgradeLevel,
         };
         return item;
