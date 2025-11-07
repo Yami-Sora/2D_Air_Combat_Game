@@ -27,4 +27,8 @@ public class YamiMonoBehaviour : MonoBehaviour
     {
         //for override  
     }
+    protected virtual void OnDisable()
+    {
+        //for override  
+    }
 }
