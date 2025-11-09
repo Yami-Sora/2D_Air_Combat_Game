@@ -8,14 +8,14 @@ public class JunkCtrl : YamiMonoBehaviour
     [SerializeField] protected JunkDespawn junkDespawn;
     public JunkDespawn JunkDespawn { get => junkDespawn; }
 
-    [SerializeField] public JunkSO junkSO;
-    public JunkSO JunkSO { get => junkSO; }
+    [SerializeField] private ShootableObjectSO shootableObject;
+    public ShootableObjectSO ShootableObject { get => shootableObject; }
     protected override void LoadComponents()
     {
         base.LoadComponents();
         this.LoadModel();
         this.LoadJunkDespawn();
-        this.LoadJunkSO();
+        this.LoadShootableObjectSO();
     }
     protected virtual void LoadModel()
     {
@@ -31,11 +31,11 @@ public class JunkCtrl : YamiMonoBehaviour
         Debug.Log("LoadJunkDespawn: " + transform.name, gameObject);
     }
 
-    protected virtual void LoadJunkSO()
+    protected virtual void LoadShootableObjectSO()
     {
-        if (junkSO != null) return;
-        string resPath = "Junk/" + transform.name;
-        junkSO = Resources.Load<JunkSO>(resPath);
-        Debug.Log("LoadJunkSO: " + resPath, gameObject);
+        if (shootableObject != null) return;
+        string resPath = "ShootableObject/Junk/" + transform.name;
+        shootableObject = Resources.Load<ShootableObjectSO>(resPath);
+        Debug.Log("LoadShootableObjectSO: " + resPath, gameObject);
     }
 }

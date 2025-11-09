@@ -264,7 +264,10 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 835263566}
+  - {fileID: 978190113}
+  - {fileID: 1294765786}
   m_Father: {fileID: 2123186439}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &75075316
@@ -454,7 +457,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::JunkCtrl
   model: {fileID: 1973109445}
   junkDespawn: {fileID: 2072884802}
-  junkSO: {fileID: 11400000, guid: 746ad6d0de3d04f408a6ec8c5568886a, type: 2}
+  shootableObject: {fileID: 11400000, guid: aeae9f3cfa9578e4db1282aa973e0d00, type: 2}
 --- !u!1 &211411838
 GameObject:
   m_ObjectHideFlags: 0
@@ -1985,10 +1988,10 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e027e58230a566a4cb1b56327d72fc47, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: Assembly-CSharp::JunkCtrl
   model: {fileID: 379860249}
   junkDespawn: {fileID: 530890732}
-  junkSO: {fileID: 11400000, guid: 260b2c707ff866b4cb35a89cc8ed7218, type: 2}
+  shootableObject: {fileID: 11400000, guid: 66694970cfea2f14389276f8ac2e475d, type: 2}
 --- !u!1 &754291649
 GameObject:
   m_ObjectHideFlags: 0
@@ -2296,7 +2299,7 @@ Transform:
   - {fileID: 1652724958}
   - {fileID: 1979646171}
   - {fileID: 2094188846}
-  m_Father: {fileID: 2123186439}
+  m_Father: {fileID: 70531062}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &835263567
 MonoBehaviour:
@@ -2312,7 +2315,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::JunkCtrl
   model: {fileID: 1010643649}
   junkDespawn: {fileID: 1652724957}
-  junkSO: {fileID: 11400000, guid: 746ad6d0de3d04f408a6ec8c5568886a, type: 2}
+  shootableObject: {fileID: 11400000, guid: aeae9f3cfa9578e4db1282aa973e0d00, type: 2}
 --- !u!1 &899841104
 GameObject:
   m_ObjectHideFlags: 0
@@ -2443,7 +2446,7 @@ Transform:
   - {fileID: 1250590944}
   - {fileID: 258938319}
   - {fileID: 2025961505}
-  m_Father: {fileID: 2123186439}
+  m_Father: {fileID: 70531062}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &978190114
 MonoBehaviour:
@@ -2456,10 +2459,10 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e027e58230a566a4cb1b56327d72fc47, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: Assembly-CSharp::JunkCtrl
   model: {fileID: 1299927589}
   junkDespawn: {fileID: 1250590943}
-  junkSO: {fileID: 11400000, guid: 8c78aed36293fc440831565903b4b270, type: 2}
+  shootableObject: {fileID: 11400000, guid: 64f169379c4caae48b84d09c6ba5d7ce, type: 2}
 --- !u!1 &985094216
 GameObject:
   m_ObjectHideFlags: 0
@@ -3295,7 +3298,7 @@ Transform:
   - {fileID: 43345636}
   - {fileID: 2002566201}
   - {fileID: 761849315}
-  m_Father: {fileID: 2123186439}
+  m_Father: {fileID: 70531062}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1294765787
 MonoBehaviour:
@@ -3308,10 +3311,10 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e027e58230a566a4cb1b56327d72fc47, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: Assembly-CSharp::JunkCtrl
   model: {fileID: 1602438254}
   junkDespawn: {fileID: 43345635}
-  junkSO: {fileID: 11400000, guid: 260b2c707ff866b4cb35a89cc8ed7218, type: 2}
+  shootableObject: {fileID: 11400000, guid: 66694970cfea2f14389276f8ac2e475d, type: 2}
 --- !u!1 &1298324187
 GameObject:
   m_ObjectHideFlags: 0
@@ -4363,10 +4366,10 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e027e58230a566a4cb1b56327d72fc47, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: Assembly-CSharp::JunkCtrl
   model: {fileID: 1255612733}
   junkDespawn: {fileID: 899841105}
-  junkSO: {fileID: 11400000, guid: 8c78aed36293fc440831565903b4b270, type: 2}
+  shootableObject: {fileID: 11400000, guid: 64f169379c4caae48b84d09c6ba5d7ce, type: 2}
 --- !u!1 &1798747688
 GameObject:
   m_ObjectHideFlags: 0
@@ -5500,9 +5503,6 @@ Transform:
   m_Children:
   - {fileID: 1437807696}
   - {fileID: 70531062}
-  - {fileID: 835263566}
-  - {fileID: 978190113}
-  - {fileID: 1294765786}
   m_Father: {fileID: 1888253016}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2123186442
