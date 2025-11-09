@@ -64,14 +64,14 @@ public abstract class Spawner : YamiMonoBehaviour
     }
     protected virtual Transform GetObjectFromPool(Transform prefab)
     {
-        foreach (Transform poolObj in this.poolObjs)
+        for (int i = 0; i < this.poolObjs.Count; i++)
         {
+            Transform poolObj = this.poolObjs[i];
             if (poolObj.name == prefab.name)
             {
-                this.poolObjs.Remove(poolObj);
+                this.poolObjs.RemoveAt(i);
                 return poolObj;
             }
-
         }
         Transform newPrefab = Instantiate(prefab);
         newPrefab.name = prefab.name;
@@ -79,6 +79,9 @@ public abstract class Spawner : YamiMonoBehaviour
     }
     public virtual void Despawn(Transform obj)
     {
+        if (obj == null || obj == this.transform)
+            return;
+
         this.poolObjs.Add(obj);
         obj.gameObject.SetActive(false);
         this.spawnedCount--;
