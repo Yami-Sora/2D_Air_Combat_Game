@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class SpawnPoints : YamiMonoBehaviour
+public class SpawnPoints : YamiMonoBehaviour
 {
     [SerializeField] protected List<Transform> points;
     protected override void LoadComponents()

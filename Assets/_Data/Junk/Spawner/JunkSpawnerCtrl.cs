@@ -5,8 +5,8 @@ public class JunkSpawnerCtrl : YamiMonoBehaviour
     [SerializeField] protected JunkSpawner junkSpawner;
     public JunkSpawner JunkSpawner { get => junkSpawner;}
 
-    [SerializeField] protected JunkSpawnPoints junkSpawnPoints;
-    public JunkSpawnPoints JunkSpawnPoints { get => junkSpawnPoints; }
+    [SerializeField] protected SpawnPoints junkSpawnPoints;
+    public SpawnPoints JunkSpawnPoints { get => junkSpawnPoints; }
     protected override void LoadComponents()
     {
         base.LoadComponents();
@@ -24,7 +24,7 @@ public class JunkSpawnerCtrl : YamiMonoBehaviour
     protected virtual void LoadSpawnPoints()
     {
         if (this.junkSpawnPoints != null) return;
-        this.junkSpawnPoints = Object.FindFirstObjectByType<JunkSpawnPoints>();
+        this.junkSpawnPoints = Object.FindFirstObjectByType<SpawnPoints>();
         Debug.Log(transform.name + ": LoadSpawnPoints", gameObject);
     }
 }

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ShipShooting : MonoBehaviour
+public abstract class ShipShooting : YamiMonoBehaviour
 {
     [SerializeField] protected bool isShooting = false;
     [SerializeField] protected float shootDelay = 1f; 
@@ -25,7 +25,7 @@ public class ShipShooting : MonoBehaviour
         this.shootTimer = 0f;
         Vector3 spawnPos = transform.position; 
         Quaternion rotation = transform.parent.rotation;
-        Transform newBullet = BulletSpawner.Instance.Spawn(BulletSpawner.BulletOne,spawnPos, rotation);
+        Transform newBullet = BulletSpawner.Instance.Spawn(BulletName(),spawnPos, rotation);
         if (newBullet == null)
         {
             Debug.LogError("Failed to spawn bullet. Check if the prefab is set up correctly.");
@@ -33,12 +33,8 @@ public class ShipShooting : MonoBehaviour
         }   
         newBullet.gameObject.SetActive(true);
         BulletCtrl bulletCtrl = newBullet.GetComponent<BulletCtrl>();
-        //bulletCtrl.SetShooter(transform.parent);
     }
+    protected abstract void CheckIsShooting();
+    protected abstract string BulletName();
 
-    protected virtual void CheckIsShooting()
-    {
-        if (InputManager.Instance.OnFiring != 0) this.isShooting = true;
-        else this.isShooting = false;
-    }
 }
