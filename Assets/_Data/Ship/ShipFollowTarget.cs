@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ShipFollowTarget : ShipMovement
+public class ShipFollowTarget : ObjMovement
 {
     [Header("Follow Target")]
     [SerializeField] protected Transform target;

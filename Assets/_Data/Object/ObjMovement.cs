@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ShipMovement : YamiMonoBehaviour
+public class ObjMovement : YamiMonoBehaviour
 {
     [SerializeField] protected Vector3 targetPosition;
     [SerializeField] protected float speed = 0.1f;

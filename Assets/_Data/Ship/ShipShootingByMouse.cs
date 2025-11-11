@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ShipShootingByMouse : ShipShooting
+public class ShipShootingByMouse : ObjShooting
 {
     protected override string BulletName()
     {

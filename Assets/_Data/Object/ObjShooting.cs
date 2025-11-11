@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class ShipShooting : YamiMonoBehaviour
+public abstract class ObjShooting : YamiMonoBehaviour
 {
     [SerializeField] protected bool isShooting = false;
     [SerializeField] protected float shootDelay = 1f; 
