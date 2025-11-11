@@ -11,18 +11,28 @@ public abstract class ShootableObjectCtrl : YamiMonoBehaviour
     [SerializeField] private ShootableObjectSO shootableObject;
     public ShootableObjectSO ShootableObject => shootableObject;
 
+    [SerializeField] private ObjShooting objShooting;
+    public ObjShooting ObjShooting => objShooting;
+
     protected override void LoadComponents()
     {
         base.LoadComponents();
         this.LoadModel();
         this.LoadDespawn();
         this.LoadSO();
+        this.LoadObjShooting();
     }
     protected virtual void LoadModel()
     {
         if (this.model != null) return;
         this.model = transform.Find("Model");
         Debug.Log(transform.name + ": LoadModel", gameObject);
+    }
+    protected virtual void LoadObjShooting()
+    {
+        if (this.objShooting != null) return;
+        this.objShooting = GetComponentInChildren<ObjShooting>();
+        Debug.Log(transform.name + ": LoadObjShooting", gameObject);
     }
 
     protected virtual void LoadDespawn()

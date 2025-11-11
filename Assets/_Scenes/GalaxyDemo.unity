@@ -206,6 +206,7 @@ MonoBehaviour:
   model: {fileID: 1442812247}
   despawn: {fileID: 1156739912}
   shootableObject: {fileID: 11400000, guid: ce708248fe634a742af7df8581b2bc6b, type: 2}
+  objShooting: {fileID: 1710848684}
   spawnPoints: {fileID: 301696696}
 --- !u!1 &43345634
 GameObject:
@@ -412,7 +413,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 154127367}
-  - component: {fileID: 154127368}
   m_Layer: 9
   m_Name: Prefabs
   m_TagString: Untagged
@@ -436,20 +436,6 @@ Transform:
   - {fileID: 37791974}
   m_Father: {fileID: 1319389198}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &154127368
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 154127366}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c79e1201658488c40a2c85250b469a4c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyDespawn
-  disLimit: 30
-  distance: 0
 --- !u!1 &202685361
 GameObject:
   m_ObjectHideFlags: 0
@@ -2082,6 +2068,7 @@ GameObject:
   m_Component:
   - component: {fileID: 561444888}
   - component: {fileID: 561444889}
+  - component: {fileID: 561444890}
   m_Layer: 9
   m_Name: ObjAppearing
   m_TagString: Untagged
@@ -2122,6 +2109,20 @@ MonoBehaviour:
   currentScale: 0
   startScale: 0.1
   maxScale: 1
+--- !u!114 &561444890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 561444887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e97666510fa41734481fa8200e7d2718, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjAppearWithoutShoot
+  shootableObjectctrl: {fileID: 37791975}
+  objAppearing: {fileID: 561444889}
 --- !u!1 &604462761
 GameObject:
   m_ObjectHideFlags: 0
@@ -2837,6 +2838,7 @@ MonoBehaviour:
   model: {fileID: 1235482365081040274}
   despawn: {fileID: 1199102772}
   shootableObject: {fileID: 11400000, guid: 548de032aabd9244ab210a8386e6466d, type: 2}
+  objShooting: {fileID: 0}
   spawnPoints: {fileID: 0}
 --- !u!4 &756044204
 Transform:
@@ -3323,7 +3325,7 @@ GameObject:
   - component: {fileID: 930733115}
   - component: {fileID: 930733116}
   m_Layer: 9
-  m_Name: ShipMovement
+  m_Name: ObjMovement
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3674,6 +3676,7 @@ MonoBehaviour:
   model: {fileID: 99324731}
   despawn: {fileID: 440078221}
   shootableObject: {fileID: 11400000, guid: d5fd291aa25407d489223287320d5a2e, type: 2}
+  objShooting: {fileID: 0}
   spawnPoints: {fileID: 1657975883}
 --- !u!4 &1003287147
 Transform:
@@ -3684,7 +3687,7 @@ Transform:
   m_GameObject: {fileID: 1003287145}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.48, y: 0.01, z: 0}
+  m_LocalPosition: {x: 3.48, y: 0.01, z: 1}
   m_LocalScale: {x: 0.6277766, y: 0.6277766, z: 0.6277766}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4773,7 +4776,6 @@ Transform:
   m_Children:
   - {fileID: 154127367}
   - {fileID: 1603047798}
-  - {fileID: 1724354169}
   m_Father: {fileID: 1888253016}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1319389199
@@ -5656,7 +5658,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1724354169}
   m_Father: {fileID: 1319389198}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1619603378
@@ -6055,7 +6058,7 @@ GameObject:
   - component: {fileID: 1710848683}
   - component: {fileID: 1710848684}
   m_Layer: 9
-  m_Name: ShipShooting
+  m_Name: ObjShooting
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6089,7 +6092,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   isShooting: 0
-  shootDelay: 2
+  shootDelay: 0.1
   shootTimer: 0
   target: {fileID: 1454639421}
   distance: Infinity
@@ -6167,7 +6170,7 @@ Transform:
   m_GameObject: {fileID: 1711784531}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 2}
   m_LocalScale: {x: 2.225929, y: 2.225929, z: 2.225929}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6344,7 +6347,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1724354169
 Transform:
   m_ObjectHideFlags: 0
@@ -6364,7 +6367,7 @@ Transform:
   - {fileID: 2115142876}
   - {fileID: 1977486360}
   - {fileID: 896643501}
-  m_Father: {fileID: 1319389198}
+  m_Father: {fileID: 1603047798}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1724354170
 MonoBehaviour:
@@ -6381,7 +6384,8 @@ MonoBehaviour:
   model: {fileID: 276504661}
   despawn: {fileID: 272420550}
   shootableObject: {fileID: 11400000, guid: ce708248fe634a742af7df8581b2bc6b, type: 2}
-  spawnPoints: {fileID: 301696696}
+  objShooting: {fileID: 1977486361}
+  spawnPoints: {fileID: 0}
 --- !u!1 &1764887192
 GameObject:
   m_ObjectHideFlags: 0
