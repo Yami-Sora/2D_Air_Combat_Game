@@ -254,6 +254,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1294765786}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &55706539
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 55706540}
+  m_Layer: 0
+  m_Name: Point_0
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &55706540
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 55706539}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.362, y: 0.368, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 293291553}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &58697240 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2844096521070114262, guid: f1d6906ca126ff4458590e288fa08b18, type: 3}
@@ -447,12 +478,12 @@ GameObject:
   - component: {fileID: 202685362}
   - component: {fileID: 202685363}
   m_Layer: 9
-  m_Name: ShipShooting
+  m_Name: ObjShooting
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &202685362
 Transform:
   m_ObjectHideFlags: 0
@@ -475,7 +506,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 202685361}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b40f23f9fb3200345950b381cfce70a4, type: 3}
   m_Name: 
@@ -754,6 +785,55 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &293291552
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 293291553}
+  - component: {fileID: 293291554}
+  m_Layer: 0
+  m_Name: SpawnPoints
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &293291553
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 293291552}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 7.29, y: 1.6, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 55706540}
+  - {fileID: 569003572}
+  m_Father: {fileID: 1724354169}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &293291554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 293291552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b20a2c2c5ae9d374a80e009ac07122e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpawnPoints
+  points:
+  - {fileID: 55706540}
+  - {fileID: 569003572}
 --- !u!1 &301696691
 GameObject:
   m_ObjectHideFlags: 0
@@ -1302,6 +1382,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShipFollowTarget
   targetPosition: {x: 0, y: 0, z: 0}
   speed: 0.005
+  rotSpeed: 3
   distance: 0
   minDistance: 1
   target: {fileID: 1454639421}
@@ -2123,6 +2204,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ObjAppearWithoutShoot
   shootableObjectctrl: {fileID: 37791975}
   objAppearing: {fileID: 561444889}
+--- !u!1 &569003571
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 569003572}
+  m_Layer: 0
+  m_Name: Point_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &569003572
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 569003571}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.222, y: -0.307, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 293291553}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &604462761
 GameObject:
   m_ObjectHideFlags: 0
@@ -3360,6 +3472,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShipFollowTarget
   targetPosition: {x: 0, y: 0, z: 0}
   speed: 0.01
+  rotSpeed: 3
   distance: 0
   minDistance: 1
   target: {fileID: 1454639421}
@@ -3676,7 +3789,7 @@ MonoBehaviour:
   model: {fileID: 99324731}
   despawn: {fileID: 440078221}
   shootableObject: {fileID: 11400000, guid: d5fd291aa25407d489223287320d5a2e, type: 2}
-  objShooting: {fileID: 0}
+  objShooting: {fileID: 202685363}
   spawnPoints: {fileID: 1657975883}
 --- !u!4 &1003287147
 Transform:
@@ -4792,7 +4905,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
   holder: {fileID: 1603047798}
   spawnedCount: 0
-  prefabs: []
+  prefabs:
+  - {fileID: 37791974}
   poolObjs: []
 --- !u!114 &1319389200
 MonoBehaviour:
@@ -5208,7 +5322,7 @@ GameObject:
   - component: {fileID: 1430227787}
   - component: {fileID: 1430227788}
   m_Layer: 9
-  m_Name: ShipMovement
+  m_Name: ObjMovement
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5243,6 +5357,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShipFollowTarget
   targetPosition: {x: 0, y: 0, z: 0}
   speed: 0.005
+  rotSpeed: 0.2
   distance: 0
   minDistance: 1
   target: {fileID: 1454639421}
@@ -5468,6 +5583,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShipFollowMouse
   targetPosition: {x: 0, y: 0, z: 0}
   speed: 0.02
+  rotSpeed: 3
   distance: 0
   minDistance: 1
 --- !u!1 &1550443451
@@ -6092,7 +6208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   isShooting: 0
-  shootDelay: 0.1
+  shootDelay: 2
   shootTimer: 0
   target: {fileID: 1454639421}
   distance: Infinity
@@ -6367,6 +6483,7 @@ Transform:
   - {fileID: 2115142876}
   - {fileID: 1977486360}
   - {fileID: 896643501}
+  - {fileID: 293291553}
   m_Father: {fileID: 1603047798}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1724354170
@@ -6385,7 +6502,7 @@ MonoBehaviour:
   despawn: {fileID: 272420550}
   shootableObject: {fileID: 11400000, guid: ce708248fe634a742af7df8581b2bc6b, type: 2}
   objShooting: {fileID: 1977486361}
-  spawnPoints: {fileID: 0}
+  spawnPoints: {fileID: 293291554}
 --- !u!1 &1764887192
 GameObject:
   m_ObjectHideFlags: 0
@@ -7248,7 +7365,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   isShooting: 0
-  shootDelay: 2
+  shootDelay: 1
   shootTimer: 0
   target: {fileID: 1454639421}
   distance: Infinity
@@ -7869,6 +7986,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShipFollowTarget
   targetPosition: {x: 0, y: 0, z: 0}
   speed: 0.01
+  rotSpeed: 3
   distance: 0
   minDistance: 1
   target: {fileID: 1454639421}
