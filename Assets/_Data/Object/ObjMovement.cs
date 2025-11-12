@@ -4,6 +4,7 @@ public class ObjMovement : YamiMonoBehaviour
 {
     [SerializeField] protected Vector3 targetPosition;
     [SerializeField] protected float speed = 0.1f;
+    [SerializeField] protected float rotSpeed = 3f;
     [SerializeField] protected float distance = 0f;
     [SerializeField] protected float minDistance = 1f;
 
@@ -25,6 +26,10 @@ public class ObjMovement : YamiMonoBehaviour
         Vector3 direction = targetPosition - transform.parent.position;
         direction.Normalize();
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        transform.parent.rotation = Quaternion.Euler(0, 0, angle);
+
+        float timeSpeed = this.rotSpeed * Time.fixedDeltaTime;
+        Quaternion targetEuler = Quaternion.Euler(0, 0, angle);
+        Quaternion currentEuler = Quaternion.Lerp(transform.parent.rotation, targetEuler, timeSpeed);
+        transform.parent.rotation = currentEuler;
     }
 }
