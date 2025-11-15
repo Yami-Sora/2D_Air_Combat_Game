@@ -14,6 +14,12 @@ public abstract class ShootableObjectCtrl : YamiMonoBehaviour
     [SerializeField] private ObjShooting objShooting;
     public ObjShooting ObjShooting => objShooting;
 
+    [SerializeField] private ObjMovement objMovement;
+    public ObjMovement ObjMovement => objMovement;
+
+    [SerializeField] private ObjLookAtTarget objLookAtTarget;
+    public ObjLookAtTarget ObjLookAtTarget => objLookAtTarget;
+
     protected override void LoadComponents()
     {
         base.LoadComponents();
@@ -21,6 +27,8 @@ public abstract class ShootableObjectCtrl : YamiMonoBehaviour
         this.LoadDespawn();
         this.LoadSO();
         this.LoadObjShooting();
+        this.LoadObjMovement();
+        this.LoadLookAtTarget();
     }
     protected virtual void LoadModel()
     {
@@ -48,6 +56,18 @@ public abstract class ShootableObjectCtrl : YamiMonoBehaviour
         string resPath = "ShootableObject/"+ this.GetObjectTypeString() +"/" + transform.name;
         shootableObject = Resources.Load<ShootableObjectSO>(resPath);
         Debug.Log("LoadShootableObjectSO: " + resPath, gameObject);
+    }
+    protected virtual void LoadObjMovement()
+    {
+        if (this.objMovement != null) return;
+        this.objMovement = GetComponentInChildren<ObjMovement>();
+        Debug.Log(transform.name + ": LoadObjMovement", gameObject);
+    }
+    protected virtual void LoadLookAtTarget()
+    {
+        if (this.objLookAtTarget != null) return;
+        this.objLookAtTarget = GetComponentInChildren<ObjLookAtTarget>();
+        Debug.Log(transform.name + ": LoadObjLookAtTarget", gameObject);
     }
     protected abstract string GetObjectTypeString();
 }

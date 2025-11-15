@@ -10,6 +10,10 @@ public class ObjLookAtTarget : YamiMonoBehaviour
         this.LookAtTarget();
     }
 
+    public virtual void SetRotSpeed(float speed)
+    {
+        this.rotSpeed = speed;
+    }
     protected virtual void LookAtTarget()
     {
         Vector3 direction = targetPosition - transform.parent.position;

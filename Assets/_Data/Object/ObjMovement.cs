@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class ObjMovement : YamiMonoBehaviour
 {
+    [Header("Obj Movement")]
     [SerializeField] protected Vector3 targetPosition;
     [SerializeField] protected float speed = 0.1f;
     [SerializeField] protected float distance = 0f;
