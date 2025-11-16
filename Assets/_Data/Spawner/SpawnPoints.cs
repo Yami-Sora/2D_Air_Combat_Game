@@ -17,7 +17,7 @@ public class SpawnPoints : YamiMonoBehaviour
         {
             this.points.Add(point);
         }
-        Debug.Log(transform.name + ": Load Points");
+        //Debug.LogWarning(transform.name + ": Load Points",gameObject);
     }
     public virtual Transform GetRandom()
     {

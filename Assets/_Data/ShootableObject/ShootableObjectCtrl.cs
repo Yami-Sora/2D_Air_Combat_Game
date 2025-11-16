@@ -20,6 +20,10 @@ public abstract class ShootableObjectCtrl : YamiMonoBehaviour
     [SerializeField] private ObjLookAtTarget objLookAtTarget;
     public ObjLookAtTarget ObjLookAtTarget => objLookAtTarget;
 
+    [SerializeField] private Spawner spawner;    
+    public Spawner Spawner => spawner;
+
+
     protected override void LoadComponents()
     {
         base.LoadComponents();
@@ -29,6 +33,7 @@ public abstract class ShootableObjectCtrl : YamiMonoBehaviour
         this.LoadObjShooting();
         this.LoadObjMovement();
         this.LoadLookAtTarget();
+        this.LoadSpawner();
     }
     protected virtual void LoadModel()
     {
@@ -68,6 +73,12 @@ public abstract class ShootableObjectCtrl : YamiMonoBehaviour
         if (this.objLookAtTarget != null) return;
         this.objLookAtTarget = GetComponentInChildren<ObjLookAtTarget>();
         Debug.Log(transform.name + ": LoadObjLookAtTarget", gameObject);
+    }
+    protected virtual void LoadSpawner()
+    {
+        if (this.spawner != null) return;
+        this.spawner = GetComponentInParent<Spawner>();
+        Debug.Log(transform.name + ": LoadSpawner", gameObject);
     }
     protected abstract string GetObjectTypeString();
 }

@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ObjAppearWithoutShoot : ShootableObjectAbstract, IObjAppearObserver
@@ -36,5 +37,7 @@ public class ObjAppearWithoutShoot : ShootableObjectAbstract, IObjAppearObserver
     {
         this.ShootableObjectCtrl.ObjShooting.gameObject.SetActive(true);
         this.ShootableObjectCtrl.ObjLookAtTarget.gameObject.SetActive(true);
+
+        this.ShootableObjectCtrl.Spawner.Hold(transform.parent);
     }
 }

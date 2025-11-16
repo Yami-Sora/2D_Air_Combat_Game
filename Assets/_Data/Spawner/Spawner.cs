@@ -104,4 +104,10 @@ public abstract class Spawner : YamiMonoBehaviour
         int index = Random.Range(0, this.prefabs.Count);
         return this.prefabs[index];
     }
+    public virtual void Hold(Transform obj)
+    {
+        if (obj == null || obj == this.transform)
+            return;
+        obj.parent = this.holder;
+    }
 }

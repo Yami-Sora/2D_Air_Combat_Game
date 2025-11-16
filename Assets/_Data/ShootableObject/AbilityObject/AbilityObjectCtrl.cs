@@ -8,7 +8,6 @@ public abstract class AbilityObjectCtrl : ShootableObjectCtrl
     protected override void LoadComponents()
     {
         base.LoadComponents();
-        this.LoadModel();
         this.LoadSpawnPoints();
     }
     protected virtual void LoadSpawnPoints()
