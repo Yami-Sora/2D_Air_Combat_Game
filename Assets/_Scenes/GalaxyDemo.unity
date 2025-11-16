@@ -1756,6 +1756,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemDropTest
   junkCtrl: {fileID: 254583050}
+  dropCount: 0
+  itemDropCounts: []
 --- !u!1 &472203195
 GameObject:
   m_ObjectHideFlags: 0
