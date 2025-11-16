@@ -6,7 +6,7 @@ public class ItemDropSpawner : Spawner
     private static ItemDropSpawner instance;
     public static ItemDropSpawner Instance => instance;
 
-    [SerializeField] protected float gameDropRate = 0.01f;
+    [SerializeField] protected float gameDropRate = 1f;
     protected override void Awake()
     {
         base.Awake();
