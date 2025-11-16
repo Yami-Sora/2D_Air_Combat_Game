@@ -12,7 +12,7 @@ public class DropManager : YamiMonoBehaviour
         if (DropManager.instance != null) Debug.Log("Only one DropManager allow!");
         DropManager.instance = this;
     }
-    public virtual void Drop(List<DropRate> dropList)
+    public virtual void Drop(List<ItemDropRate> dropList)
     {
         Debug.Log(dropList[0].itemProfileSO.itemName);
     }
