@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Ship
   m_EditorClassIdentifier: Assembly-CSharp::ShootableObjectSO
   objName: Shootable Object
-  objType: 0
-  hpMax: 2
+  objType: 4
+  hpMax: 30
   dropList: []
