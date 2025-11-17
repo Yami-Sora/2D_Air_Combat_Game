@@ -14,6 +14,10 @@ public abstract class BaseAbilities : YamiMonoBehaviour
     {
         this.Timing();
     }
+    protected virtual void Update()
+    {
+        //For override
+    }
     protected override void LoadComponents()
     {
         base.LoadComponents();

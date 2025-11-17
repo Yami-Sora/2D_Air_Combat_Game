@@ -4508,6 +4508,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1288877522}
+  - component: {fileID: 1288877523}
   m_Layer: 8
   m_Name: AbilityWarp
   m_TagString: Untagged
@@ -4530,6 +4531,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1961108926}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1288877523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1288877521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7391b4a4a0d2e144dada71b1d925fe37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AbilitiesWarpFromInput
+  abilities: {fileID: 1961108927}
+  timer: 2
+  delay: 0.3
+  isReady: 0
+  spawner: {fileID: 0}
+  isWarping: 0
+  warpSpeed: 0.3
+  warpDistance: 2
+  warpDirection: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &1298324187
 GameObject:
   m_ObjectHideFlags: 0
@@ -7113,6 +7135,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1961108926}
+  - component: {fileID: 1961108927}
   m_Layer: 8
   m_Name: Abilities
   m_TagString: Untagged
@@ -7136,6 +7159,19 @@ Transform:
   - {fileID: 1288877522}
   m_Father: {fileID: 1454639421}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1961108927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1961108925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a63a4475c81232847b587d00e9426f02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Abilities
+  abilityObjectCtrl: {fileID: 1454639422}
 --- !u!1 &1971291344
 GameObject:
   m_ObjectHideFlags: 0
@@ -7755,7 +7791,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2154063412667765886, guid: f29598142ccce0845ae1cc60a26a5124, type: 3}
       propertyPath: m_SortingLayer
-      value: 5
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 2154063412667765886, guid: f29598142ccce0845ae1cc60a26a5124, type: 3}
       propertyPath: m_SortingLayerID
@@ -7992,7 +8028,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7293729858389204099, guid: f1d6906ca126ff4458590e288fa08b18, type: 3}
       propertyPath: m_SortingLayer
-      value: 5
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 7293729858389204099, guid: f1d6906ca126ff4458590e288fa08b18, type: 3}
       propertyPath: m_SortingLayerID
@@ -8012,7 +8048,6 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1711483917}
-  - {fileID: 1454639421}
   - {fileID: 324196214}
   - {fileID: 301696693}
   - {fileID: 1128073846}
@@ -8025,3 +8060,4 @@ SceneRoots:
   - {fileID: 761327995}
   - {fileID: 347762342}
   - {fileID: 254583051}
+  - {fileID: 1454639421}
