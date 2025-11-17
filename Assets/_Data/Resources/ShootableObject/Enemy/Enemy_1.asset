@@ -14,9 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShootableObjectSO
   objName: Shootable Object
   objType: 2
-  hpMax: 2
+  HPMax: 10
   dropList:
   - itemProfileSO: {fileID: 11400000, guid: 04d10d8702c656a4ba0cddea54e003dc, type: 2}
     dropRate: 0
-    minDrop: 0
-    maxDrop: 0

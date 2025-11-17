@@ -40,7 +40,7 @@ public class ShootableObjectDamReceiver : DamageReceiver
     }
     public override void Reborn()
     {
-        this.hpMax = shootableObjectCtrl.ShootableObject.hpMax;
+        this.hpMax = shootableObjectCtrl.ShootableObject.HPMax;
         base.Reborn();
     }
 }

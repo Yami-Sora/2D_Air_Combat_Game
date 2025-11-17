@@ -2,6 +2,7 @@ using UnityEngine;
 
 public abstract class ShootableObjectCtrl : YamiMonoBehaviour
 {
+    [Header("Shootable Object Ctrl")]
     [SerializeField] protected Transform model;
     public Transform Model => model;
 
