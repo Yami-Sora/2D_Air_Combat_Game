@@ -34,7 +34,7 @@ public class ItemDropTest : YamiMonoBehaviour
                 this.itemDropCounts.Add(itemDropCount);
             }
             itemDropCount.count += 1;
-            itemDropCount.rate = (float)Math.Round((float)itemDropCount.count / dropCount,1);
+            itemDropCount.rate = (float)Math.Round((float)itemDropCount.count / dropCount,2);
         }
     }
     [Serializable]

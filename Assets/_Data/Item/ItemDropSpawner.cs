@@ -35,8 +35,17 @@ public class ItemDropSpawner : Spawner
         List<ItemDropRate> droppedItems = new List<ItemDropRate>();
         foreach (ItemDropRate item in items)
         {
-            float rate = Random.Range(0, 100f);
-            float itemRate = item.dropRate * this.gameDropRate;
+            float rate = Random.Range(0, 1f);
+            float itemRate = item.dropRate / 100000f * this.GameDropRate();
+            int itemDropMore = Mathf.FloorToInt(itemRate);
+            if(itemDropMore > 0)
+            {
+                itemRate = itemRate - itemDropMore;
+                for (int i = 0; i < itemDropMore; i++)
+                {
+                    droppedItems.Add(item);
+                }
+            }
             if (rate <= itemRate)
             {
                 droppedItems.Add(item);
@@ -45,6 +54,11 @@ public class ItemDropSpawner : Spawner
         return droppedItems;
     }
 
+    protected virtual float GameDropRate()
+    {
+        float dropRateFromItem = 0.5f;
+        return this.gameDropRate + dropRateFromItem;
+    }
     public virtual Transform DropFromInventory(ItemInventory itemInventory, Vector3 pos, Quaternion rot)
     {
         ItemCode itemcode = itemInventory.itemProfile.itemCode;
