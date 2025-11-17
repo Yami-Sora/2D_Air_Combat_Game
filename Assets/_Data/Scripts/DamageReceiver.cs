@@ -9,6 +9,9 @@ public abstract class DamageReceiver : YamiMonoBehaviour
     [SerializeField] protected int hpMax = 2;
     [SerializeField] protected bool isDead = false;
 
+    public int HP => this.hp;
+    public int HPMax => this.hpMax;
+
     protected override void OnEnable()
     {
         this.Reborn();
