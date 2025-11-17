@@ -6,8 +6,8 @@ public abstract class BaseAbilities : YamiMonoBehaviour
     [SerializeField] private Abilities abilities;
     protected Abilities Abilities => abilities;
 
-    [SerializeField] protected float timer = 2f;
-    [SerializeField] protected float delay = 2f;
+    [SerializeField] protected float timer = 0f;
+    [SerializeField] protected float delay = 5f;
     [SerializeField] protected bool isReady = false;
 
     protected virtual void FixedUpdate()

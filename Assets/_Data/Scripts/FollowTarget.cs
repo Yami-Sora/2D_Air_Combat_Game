@@ -16,4 +16,9 @@ public class FollowTarget : YamiMonoBehaviour
             new Vector3(this.target.position.x, this.target.position.y, transform.position.z),
             this.speed * Time.fixedDeltaTime);
     }
+
+    public virtual void SetTarget(Transform target)
+    {
+        this.target = target;
+    }
 }
