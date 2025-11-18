@@ -9,7 +9,7 @@ public abstract class BaseSlider : YamiMonoBehaviour
     protected override void Start()
     {
         base.Start();
-        this.AddOnChangedEvent();
+        //this.AddOnChangedEvent();
     }
     protected virtual void FixedUpdate()
     {
@@ -26,9 +26,9 @@ public abstract class BaseSlider : YamiMonoBehaviour
         this.slider = this.GetComponent<Slider>();
         Debug.LogWarning(transform.name + ": LoadSlider", gameObject);
     }
-    protected virtual void AddOnChangedEvent()
-    {
-        this.slider.onValueChanged.AddListener(this.OnChanged);
-    }
-    protected abstract void OnChanged(float newValue);
+    //protected virtual void AddOnChangedEvent()
+    //{
+    //    this.slider.onValueChanged.AddListener(this.OnChanged);
+    //}
+    //protected abstract void OnChanged(float newValue);
 }

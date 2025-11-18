@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DropManager : YamiMonoBehaviour
@@ -11,9 +10,5 @@ public class DropManager : YamiMonoBehaviour
         base.Awake();
         if (DropManager.instance != null) Debug.Log("Only one DropManager allow!");
         DropManager.instance = this;
-    }
-    public virtual void Drop(List<ItemDropRate> dropList)
-    {
-        Debug.Log(dropList[0].itemProfileSO.itemName);
     }
 }

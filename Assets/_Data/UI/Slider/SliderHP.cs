@@ -17,10 +17,10 @@ public class SliderHP : BaseSlider
         float hpPercent = this.currentHP / this.maxHP;
         this.slider.value = hpPercent;
     }
-    protected override void OnChanged(float newValue)
-    {
-        Debug.Log("newValue: " + newValue);
-    }
+    //protected override void OnChanged(float newValue)
+    //{
+    //    Debug.Log("newValue: " + newValue);
+    //}
     public virtual void SetMaxHP(float maxHP)
     {
         this.maxHP = maxHP;

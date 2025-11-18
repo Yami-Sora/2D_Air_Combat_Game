@@ -26,7 +26,7 @@ public abstract class BaseAbilities : YamiMonoBehaviour
     protected virtual void LoadAbilities()
     {
         if (this.abilities != null) return;
-        this.abilities = GetComponentInParent<Abilities>();
+        this.abilities = GetComponentInParent<Abilities>(true);
         Debug.Log(transform.name + ": LoadAbilities", gameObject);
     }
     protected virtual void Timing()
