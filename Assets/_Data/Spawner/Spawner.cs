@@ -16,10 +16,10 @@ public abstract class Spawner : YamiMonoBehaviour
     protected override void LoadComponents()
     {
         this.LoadPrefabs();
-        this.LoadHoler();
+        this.LoadHolder();
     }
 
-    protected virtual void LoadHoler()
+    protected virtual void LoadHolder()
     {
         if (this.holder != null) return;
         this.holder = transform.Find("Holder");
