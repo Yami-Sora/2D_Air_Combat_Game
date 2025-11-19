@@ -81,6 +81,7 @@ public abstract class Spawner : YamiMonoBehaviour
     {
         if (obj == null || obj == this.transform)
             return;
+        if(this.poolObjs.Contains (obj)) return;
 
         this.poolObjs.Add(obj);
         obj.gameObject.SetActive(false);

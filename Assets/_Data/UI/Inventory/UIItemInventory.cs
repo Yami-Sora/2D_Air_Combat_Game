@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIItemInventory : YamiMonoBehaviour
 {
@@ -11,12 +12,15 @@ public class UIItemInventory : YamiMonoBehaviour
 
     [SerializeField]  private TMP_Text itemNumber;
     public TMP_Text ItemNumber => itemNumber;
+    [SerializeField]  private Image itemSprite;
+    public Image ItemSprite => itemSprite;
 
     protected override void LoadComponents()
     {
         base.LoadComponents();
         this.LoadItemName();
         this.LoadItemNumber();
+        this.LoadItemSprite();
     }
     protected virtual void LoadItemName()
     {
@@ -30,11 +34,17 @@ public class UIItemInventory : YamiMonoBehaviour
         this.itemNumber = transform.Find("ItemCount").GetComponent<TMP_Text>();
         Debug.LogWarning(transform.name + "LoadItemNumber", gameObject);
     }
-
+    protected virtual void LoadItemSprite()
+    {
+        if(this.itemSprite != null) return;
+        this.itemSprite = transform.Find("ItemSprite").GetComponent<Image>();
+        Debug.LogWarning(transform.name + "LoadItemSprite", gameObject);
+    }
     public virtual void ShowItem(ItemInventory item)
     {
         this.itemInventory = item;
         this.itemName.text = itemInventory.itemProfile.name;
         this.itemNumber.text = itemInventory.itemCount.ToString();
+        this.itemSprite.sprite = this.ItemInventory.itemProfile.sprite;
     }
 }
