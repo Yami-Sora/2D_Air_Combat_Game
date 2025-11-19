@@ -1,10 +1,11 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class UIItemInventory : YamiMonoBehaviour
 {
     [Header("UI Item Inventory")]
+    [SerializeField] private ItemInventory itemInventory;
+    public ItemInventory ItemInventory => itemInventory;
     [SerializeField] private TMP_Text itemName;
     public TMP_Text ItemName => itemName;
 
@@ -32,7 +33,8 @@ public class UIItemInventory : YamiMonoBehaviour
 
     public virtual void ShowItem(ItemInventory item)
     {
-        this.itemName.text = item.itemProfile.name;
-        this.itemNumber.text = item.itemCount.ToString();
+        this.itemInventory = item;
+        this.itemName.text = itemInventory.itemProfile.name;
+        this.itemNumber.text = itemInventory.itemCount.ToString();
     }
 }

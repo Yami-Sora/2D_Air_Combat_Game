@@ -1,7 +1,10 @@
 ﻿using System;
+using UnityEngine;
 [Serializable]
 public class ItemInventory
 {
+    [SerializeField] private string itemId = RandomId();
+    public string ItemID => itemId;
     public ItemProfileSO itemProfile;
     public int itemCount = 0;
     public int maxStack = 7;
@@ -9,6 +12,7 @@ public class ItemInventory
 
     public virtual ItemInventory Clone()
     {
+        // A new ItemInventory will get a new random ID automatically
         ItemInventory item = new ItemInventory
         {
             itemProfile = this.itemProfile,
@@ -17,5 +21,9 @@ public class ItemInventory
             upgradeLevel = this.upgradeLevel,
         };
         return item;
+    }
+    public static string RandomId()
+    {
+        return Guid.NewGuid().ToString();
     }
 }
