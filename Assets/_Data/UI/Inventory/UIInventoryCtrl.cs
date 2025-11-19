@@ -13,14 +13,7 @@ public class UIInventoryCtrl : YamiMonoBehaviour
         this.LoadContent();
         this.LoadInventorySpawner();
     }
-    protected override void Start()
-    {
-        base.Start();
-        for(int i = 0; i < 70; i++)
-        {
-            this.SpawnTest(i);
-        }
-    }
+
     protected virtual void LoadContent()
     {
         if (this.content != null) return;
@@ -33,11 +26,5 @@ public class UIInventoryCtrl : YamiMonoBehaviour
         this.inventorySpawner = GetComponentInChildren<UIInvItemSpawner>(true);
         Debug.LogWarning(transform.name + ":LoadInventorySpawner", gameObject);
     }
-    public virtual void SpawnTest(int i)
-    {
-        Transform uiItem = this.UIInvItemSpawner.Spawn(UIInvItemSpawner.normalItem, Vector3.zero, Quaternion.identity);
-        uiItem.transform.localScale = Vector3.one;
-        uiItem.name = "Item_" + i;
-        uiItem.gameObject.SetActive(true);
-    }
+
 }

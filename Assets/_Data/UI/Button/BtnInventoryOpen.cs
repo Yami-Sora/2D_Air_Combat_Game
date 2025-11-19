@@ -6,7 +6,7 @@ public class BtnInventoryOpen : BaseButton
     {
         if (UIInventory.Instance == null)
         {
-            Debug.LogError("UIManager is missing in the scene!");
+            Debug.LogError("UIInventory is missing in the scene!");
             return;
         }
         UIInventory.Instance.Toggle();

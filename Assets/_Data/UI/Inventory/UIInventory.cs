@@ -1,7 +1,9 @@
+using System.Collections.Generic;
 using UnityEngine;
 
-public class UIInventory : YamiMonoBehaviour
+public class UIInventory : UIInventoryAbstract
 {
+    [Header("UI Inventory")]
     private static UIInventory instance;
     public static UIInventory Instance => instance;
 
@@ -17,10 +19,10 @@ public class UIInventory : YamiMonoBehaviour
         base.Start();
         //this.Close();
     }
-    protected virtual void FixedUpdate()
-    {
-        this.ShowItem();
-    }
+    //protected virtual void FixedUpdate()
+    //{
+    //    this.ShowItem();
+    //}
     public virtual void Toggle()
     {
         this.isOpen = !this.isOpen;
@@ -29,18 +31,29 @@ public class UIInventory : YamiMonoBehaviour
     }
     public virtual void Open()
     {
-        this.gameObject.SetActive(true);
+        UIInventoryCtrl.gameObject.SetActive(true);
         this.isOpen = true;
+        this.ShowItem();
     }
     public virtual void Close()
     {
-        this.gameObject.SetActive(false);
+        UIInventoryCtrl.gameObject.SetActive(false);
         this.isOpen = false;
     }
     protected virtual void ShowItem()
     {
         if (!this.isOpen) return;
-        float itemCount = PlayerCtrl.Instance.CurrentShip.Inventory.Items.Count;
-        Debug.Log("ItemCount: "+itemCount);
+        this.ClearItems();
+        List<ItemInventory> Items = PlayerCtrl.Instance.CurrentShip.Inventory.Items;
+        UIInvItemSpawner spawner = this.inventoryCtrl.UIInvItemSpawner;
+        foreach (ItemInventory item in Items) 
+        {
+            spawner.SpawnItem(item);
+        }
+
+    }
+    protected virtual void ClearItems()
+    {
+        UIInventoryCtrl.UIInvItemSpawner.ClearItems();
     }
 }

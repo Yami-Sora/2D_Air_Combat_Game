@@ -8,7 +8,7 @@ public class UIInvItemSpawner : Spawner
 
     [Header("Inventory Item Spawner")]
     [SerializeField] protected UIInventoryCtrl inventoryCtrl;
-    public UIInventoryCtrl InventoryCtrl => inventoryCtrl;
+    public UIInventoryCtrl UIInventoryCtrl => inventoryCtrl;
 
     protected override void LoadComponents()
     {
@@ -30,7 +30,23 @@ public class UIInvItemSpawner : Spawner
     protected override void LoadHolder()
     {
         if (this.holder != null) return;
-        this.holder = InventoryCtrl.Content;
+        this.holder = UIInventoryCtrl.Content;
         Debug.LogWarning(transform.name + ":LoadHolder", gameObject);
+    }
+    public virtual void ClearItems()
+    {
+        foreach(Transform item in this.holder)
+        {
+            this.Despawn(item);
+        }
+    }
+    public virtual void SpawnItem(ItemInventory item)
+    {
+        Transform uiItem = this.UIInventoryCtrl.UIInvItemSpawner.Spawn(UIInvItemSpawner.normalItem, Vector3.zero, Quaternion.identity);
+        uiItem.transform.localScale = Vector3.one;
+
+        UIItemInventory itemInventory = uiItem.GetComponent<UIItemInventory>();
+        itemInventory.ShowItem(item);
+        uiItem.gameObject.SetActive(true);
     }
 }

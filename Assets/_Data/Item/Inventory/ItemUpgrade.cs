@@ -44,7 +44,7 @@ public class ItemUpgrade : InventoryAbstract
         int itemCount;
         if (currentLevel >= upgradeLevels.Count)
         {
-            Debug.LogError("Item cant be upgraded more, current: " + currentLevel);
+            Debug.LogWarning("Item cant be upgraded more, current: " + currentLevel);
             return false;
         }
         ItemRecipe currentRecipeLevel = upgradeLevels[currentLevel];
@@ -55,7 +55,7 @@ public class ItemUpgrade : InventoryAbstract
 
             if(!this.inventory.ItemCheck(itemCode, itemCount))
             {
-                Debug.LogError("Not enough ingredient: " + itemCode);
+                Debug.LogWarning("Not enough ingredient: " + itemCode);
                 return false;
             }
         }
