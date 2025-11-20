@@ -10,6 +10,8 @@ public class UIInventory : UIInventoryAbstract
 
     protected bool isOpen = true;
     [SerializeField] protected InventorySort inventorySort = InventorySort.ByName;
+    protected bool isSortDirty = false;
+
     protected override void Awake()
     {
         base.Awake();
@@ -22,17 +24,26 @@ public class UIInventory : UIInventoryAbstract
         this.Close();
     }
 
+    protected virtual void Update()
+    {
+        if (this.isSortDirty)
+        {
+            this.isSortDirty = false;
+            this.ShowItems();
+        }
+    }
+
     //Tự động cập nhật sắp xếp kho đồ mỗi khi thay đổi giá trị InventorySort
     protected virtual void OnValidate()
     {
         // Chỉ chạy khi game đang ở play mode để tránh lỗi
         if (!Application.isPlaying) return;
-        this.ShowItems();
+        this.isSortDirty = true;
     }
     public virtual void Toggle()
     {
         this.isOpen = !this.isOpen;
-        if(this.isOpen) this.Open();
+        if (this.isOpen) this.Open();
         else this.Close();
     }
     public virtual void Open()
@@ -56,7 +67,7 @@ public class UIInventory : UIInventoryAbstract
         this.ClearItems();
         List<ItemInventory> Items = PlayerCtrl.Instance.CurrentShip.Inventory.Items;
         UIInvItemSpawner spawner = this.inventoryCtrl.UIInvItemSpawner;
-        foreach (ItemInventory item in Items) 
+        foreach (ItemInventory item in Items)
         {
             spawner.SpawnItem(item);
         }
@@ -68,52 +79,51 @@ public class UIInventory : UIInventoryAbstract
     }
     protected virtual void SortItems()
     {
-        switch (this.inventorySort)
-        {
-            case InventorySort.ByName:
-                this.SortByName();
-                break;
-            case InventorySort.ByCount:
-                Debug.Log("InventorySort.ByCount");
-                break;
-            default:
-                Debug.Log("InventorySort.NoSort");
-                break;
-        }
-    }
-    protected virtual void SortByName()
-    {
-        Debug.Log("====InventorySort.ByName====");
+        if (this.inventorySort == InventorySort.NoSort) return;
+
         int itemCount = this.inventoryCtrl.Content.childCount;
-        Transform currentItem, nextItem;
-        UIItemInventory currentUIItem, nextUIItem;
-        ItemProfileSO currentProfile, nextProfile;
-        string currentName, nextName;
-        bool isSorting = false;
-        for (int i = 0; i < itemCount-1; i++)
+        bool swappedInPass;
+
+        // Thay thế đệ quy bằng vòng lặp lặp lại để tránh lỗi tràn bộ nhớ stack
+        // và cải thiện hiệu suất.
+        do
         {
-            currentItem = this.inventoryCtrl.Content.GetChild(i);
-            nextItem = this.inventoryCtrl.Content.GetChild(i + 1);
-
-            currentUIItem = currentItem.GetComponent<UIItemInventory>();
-            nextUIItem = nextItem.GetComponent<UIItemInventory>();
-
-            currentProfile = currentUIItem.ItemInventory.itemProfile;
-            nextProfile = nextUIItem.ItemInventory.itemProfile;
-
-            currentName = currentProfile.itemName;
-            nextName = nextProfile.itemName;
-
-
-            int compare = string.Compare(currentName, nextName);
-            if(compare == 1)
+            swappedInPass = false;
+            for (int i = 0; i < itemCount - 1; i++)
             {
-                this.SwapItems(currentItem, nextItem);
-                isSorting = true;
+                Transform currentItem = this.inventoryCtrl.Content.GetChild(i);
+                Transform nextItem = this.inventoryCtrl.Content.GetChild(i + 1);
+
+                UIItemInventory currentUIItem = currentItem.GetComponent<UIItemInventory>();
+                UIItemInventory nextUIItem = nextItem.GetComponent<UIItemInventory>();
+
+                ItemProfileSO currentProfile = currentUIItem.ItemInventory.itemProfile;
+                ItemProfileSO nextProfile = nextUIItem.ItemInventory.itemProfile;
+
+                bool isSwap = false;
+                switch (this.inventorySort)
+                {
+                    case InventorySort.ByName:
+                        string currentName = currentProfile.itemName;
+                        string nextName = nextProfile.itemName;
+                        if (string.Compare(currentName, nextName) == 1) isSwap = true;
+                        break;
+
+                    case InventorySort.ByCount:
+                        int currentCount = currentUIItem.ItemInventory.itemCount;
+                        int nextCount = nextUIItem.ItemInventory.itemCount;
+                        // Sắp xếp theo thứ tự giảm dần (số lượng cao nhất trước)
+                        if (currentCount < nextCount) isSwap = true;
+                        break;
+                }
+
+                if (isSwap)
+                {
+                    this.SwapItems(currentItem, nextItem);
+                    swappedInPass = true;
+                }
             }
-            Debug.Log(i + ": " + currentName + " | " + nextName + " = " + compare);
-        }
-        if (isSorting) SortByName();//Đệ quy
+        } while (swappedInPass);
     }
     protected virtual void SwapItems(Transform currentItem, Transform nextItem)
     {
