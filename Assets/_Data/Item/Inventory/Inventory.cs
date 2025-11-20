@@ -15,9 +15,9 @@ public class Inventory : YamiMonoBehaviour
     protected override void Start()
     {
         base.Start();
-        this.AddItem(ItemCode.CopperSword, 1);
-        this.AddItem(ItemCode.IronOre, 11);
-        this.AddItem(ItemCode.GoldOre, 11);
+        this.AddItem(ItemCode.CopperSword, 2);
+        this.AddItem(ItemCode.IronOre, 12);
+        this.AddItem(ItemCode.GoldOre, 12);
     }
 
     // Thêm vật phẩm vào kho đồ, tự động phân loại để xử lý.

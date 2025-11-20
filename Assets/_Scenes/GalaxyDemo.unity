@@ -9943,12 +9943,12 @@ MonoBehaviour:
     m_Left: 30
     m_Right: 0
     m_Top: 25
-    m_Bottom: 0
+    m_Bottom: 10
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
   m_CellSize: {x: 90, y: 90}
-  m_Spacing: {x: 0, y: 0}
+  m_Spacing: {x: 9, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 3
 --- !u!1 &1897571940
@@ -10747,7 +10747,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2039250754}
   m_LocalRotation: {x: -0, y: -0, z: 4.573408e-16, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.000021141424}
+  m_LocalPosition: {x: 0, y: 0, z: 0.00002114142}
   m_LocalScale: {x: 0.9999072, y: 0.9999072, z: 0.9999072}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -10759,7 +10759,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -108.91855, y: 2.1100006}
+  m_AnchoredPosition: {x: -108.91852, y: 2.1100006}
   m_SizeDelta: {x: 90, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2039250756
