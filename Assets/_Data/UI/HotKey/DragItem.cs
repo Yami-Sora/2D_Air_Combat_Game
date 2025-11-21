@@ -23,7 +23,6 @@ public class DragItem : YamiMonoBehaviour, IBeginDragHandler,IDragHandler ,IEndD
     }
     public void OnBeginDrag(PointerEventData eventData)
     {
-        Debug.Log("OnBeginDrag");
         this.RealParent = transform.parent;
         transform.SetParent(UIHotKeyCtrl.Instance.transform, false);
         this.image.raycastTarget = false;
@@ -31,7 +30,6 @@ public class DragItem : YamiMonoBehaviour, IBeginDragHandler,IDragHandler ,IEndD
 
     public void OnDrag(PointerEventData eventData)
     {
-        Debug.Log("OnDrag");
         Vector3 mousePos = InputManager.Instance.MouseWorldPos;
         mousePos.z = 0;
         this.transform.position = mousePos;
@@ -39,7 +37,6 @@ public class DragItem : YamiMonoBehaviour, IBeginDragHandler,IDragHandler ,IEndD
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        Debug.Log("OnEndDrag");
 
         if (!DroppedOnSlot)
             transform.SetParent(RealParent, false);
