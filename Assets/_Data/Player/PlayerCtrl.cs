@@ -11,6 +11,9 @@ public class PlayerCtrl : YamiMonoBehaviour
     [SerializeField] protected PlayerPickup playerPickup;
     public PlayerPickup PlayerPickup { get => playerPickup; }
 
+    [SerializeField] protected PlayerAbility playerAbility;
+    public PlayerAbility PlayerAbility { get => playerAbility; }
+
     protected override void Awake()
     {
         base.Awake();
@@ -21,11 +24,18 @@ public class PlayerCtrl : YamiMonoBehaviour
     {
         base.LoadComponents();
         this.LoadPlayerPickUp();
+        this.LoadPlayerAbility();
     } 
     protected virtual void LoadPlayerPickUp()
     {
         if (this.playerPickup != null) return;
         this.playerPickup = transform.GetComponentInChildren<PlayerPickup>();
         Debug.Log($"PlayerCtrl: LoadPlayerPickUp in {gameObject.name}", gameObject);
+    }
+    protected virtual void LoadPlayerAbility()
+    {
+        if (this.playerAbility != null) return;
+        this.playerAbility = transform.GetComponentInChildren<PlayerAbility>();
+        Debug.Log($"PlayerCtrl: LoadPlayerAbility in {gameObject.name}", gameObject);
     }
 }
